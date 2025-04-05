@@ -1,4 +1,4 @@
-# LSD Contracts
+# LSD & Omni Vault Contracts
 
 ## Project Description
 
