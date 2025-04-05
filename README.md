@@ -23,7 +23,7 @@ This project implements a cross-chain Liquid Staking Derivatives (LSD) optimizat
 - **CCTP (Cross-Chain Transfer Protocol)**
   - Used for secure and efficient cross-chain USDC transfers
   - Implements Circle's CCTP standard for stablecoin bridging
-  - Reference: [Circle CCTP Documentation](https://developers.circle.com/stablecoin/docs/cctp-technical-reference)
+  - Reference: [Circle CCTP Documentation](https://developers.circle.com/stablecoins/cctp-getting-started)
 
 - **Hyperlane**
   - Implements cross-chain messaging protocol
