@@ -128,12 +128,13 @@ contract OmniVaultProtocols is Initializable, Ownable {
             revert("Unsupported chain");
         }
 
+        // Using CCTP's standard transfer for now, will be extended to support fast transfer option based on user's choice in the future
         ITokenMessenger(_getProtocolStorage().protocols[ProtocolType.CCTP]).depositForBurn(
             _amount,
              destinationDomain,
              bytes32(uint256(uint160(address(this)))),
              address(_getProtocolStorage().USDC),
-             bytes32(0),
+             bytes32(uint256(uint160(address(this)))),
              0,
              0
         );
