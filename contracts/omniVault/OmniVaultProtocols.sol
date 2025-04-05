@@ -59,8 +59,8 @@ contract OmniVaultProtocols is Initializable, Ownable {
 
             _setUSDC(address(0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238));
             _setProtocol(ProtocolType.AAVE, address(0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951));
-            _setProtocol(ProtocolType.CCTP, address(0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5));
-            _setProtocol(ProtocolType.CCTP_TRANSMIITER, address(0x7865fAfC2db2093669d92c0F33AeEF291086BEFD));
+            _setProtocol(ProtocolType.CCTP, address(0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA));
+            _setProtocol(ProtocolType.CCTP_TRANSMIITER, address(0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275));
             _setProtocol(ProtocolType.HYPERLANE, address(0xfFAEF09B3cd11D9b20d1a19bECca54EEC2884766));
             _setProtocol(ProtocolType.HYPERLANE_GAS_PAYMASTER, address(0x6f2756380FD49228ae25Aa7F2817993cB74Ecc56));
 
@@ -73,8 +73,8 @@ contract OmniVaultProtocols is Initializable, Ownable {
 
             _setUSDC(address(0x036CbD53842c5426634e7929541eC2318f3dCF7e));
             _setProtocol(ProtocolType.COMPOUND, address(0x571621Ce60Cebb0c1D442B5afb38B1663C6Bf017));
-            _setProtocol(ProtocolType.CCTP, address(0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5));
-            _setProtocol(ProtocolType.CCTP_TRANSMIITER, address(0x7865fAfC2db2093669d92c0F33AeEF291086BEFD));
+            _setProtocol(ProtocolType.CCTP, address(0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA));
+            _setProtocol(ProtocolType.CCTP_TRANSMIITER, address(0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275));
             _setProtocol(ProtocolType.HYPERLANE, address(0x6966b0E55883d49BFB24539356a2f8A673E02039));
             _setProtocol(ProtocolType.HYPERLANE_GAS_PAYMASTER, address(0x28B02B97a850872C4D33C3E024fab6499ad96564));
 
@@ -128,7 +128,15 @@ contract OmniVaultProtocols is Initializable, Ownable {
             revert("Unsupported chain");
         }
 
-        ITokenMessenger(_getProtocolStorage().protocols[ProtocolType.CCTP]).depositForBurn(_amount, destinationDomain, bytes32(uint256(uint160(address(this)))), address(_getProtocolStorage().USDC));
+        ITokenMessenger(_getProtocolStorage().protocols[ProtocolType.CCTP]).depositForBurn(
+            _amount,
+             destinationDomain,
+             bytes32(uint256(uint160(address(this)))),
+             address(_getProtocolStorage().USDC),
+             bytes32(0),
+             0,
+             0
+        );
     }
 
     function _messageToHyperlane(uint32 _toChainId, bytes memory _body) internal {
